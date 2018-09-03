@@ -1,0 +1,93 @@
+##Global props
+##the root directory of all output
+output: ../output
+
+##the root directory of (almost) all data, with the exception of things that are too big to hold on
+##local machines and in dropbox, such as rnaseq data
+data: ../data
+
+##The root directory of all temp files that are generated. This is in home
+##because of horrible apparmor permissions issues; they can only be turned on for
+##files without spaces, but my dropbox folder has spaces
+tmpdir: ../output/tmp
+
+##whether we are running on the lsf cluster or on local machine
+onCluster: no
+
+##OVX specific properties
+ovx:
+
+  ##the column in input data describing the ID associated with each
+  idcol: ANIMAL.ID
+
+  ##The jags model used for estimating strain by treatment effects
+  modelname: ./ovx/model.delta.bug
+
+  ##The jags model used for estimating strain effects
+  modelname.2: ./ovx/model.strain.bug
+
+  ##The number of sampling iteration for Jags
+  iter: 10000
+
+  ##Thin constant for Jags
+  thin: 10
+
+  ##Fraction of discarded burn in samples for Jags. Min 0, max 1.
+  burninfrac: 0.2
+
+  ##Number of randomly matched imputations generated in the course of permutation testing and estimation of strain by treatment effects
+  numImp: 3
+
+  ## Number of permutations for permutation testing
+  numPerm: 100
+
+  ##Indicates whether phentoypes in strain modelling (not strain by treatment) should be normalized
+  ##before applying a box cox transform
+  normalizeBeforeTransform: no
+
+  ##Indicates whether phenotypes in strain modelling (not strain by treatment) should be normalized
+  ## AFTER applying a box cox transform.
+  normalizeAfterTransform: no
+
+  ##Whether or not we employ the gurka procedure to account for random variables in the box cox transform
+  gurka: no
+
+  ##The candidate box transform parameters 
+  lambdasToTry:
+  - -3.0
+  - -2.0
+  - -1.0
+  - -0.5
+  - -3.33333e-01
+  - 0.0
+  - 5.0e-01       ## floats in a yaml vector are parsed incorrectly if the decimal point is on the front without a 0 after it
+  - 3.33333e-01
+  - 1.0  ## if the decimal point is not included for this number, the vector will load up as a list instead, as the types (integer and float) will be different, and a vector cant hold different types
+  - 2.0
+  - 3.0
+
+  ##If discretization is needed, the buckets over which to discretize p-values
+  discreteBuckets:
+  - 0.0
+  - 0.05
+  - 1.0e-01
+  - 1.0
+
+  ## the number of cores to use to run model fitting in parallel across imputations.
+  ##if Distributing jobs accross the cluster, set this to 1.
+  mc.cores: 1
+
+  ## The amount of memory requested per job, in GB, when running on the cluster
+  clusterMemLim: 6
+
+  clusterQueue: hour
+
+  ## IF imputations are failing, and we want to ensure a certain number of imputations succeed,
+  ##do extra.imp.multuple * numImp worth of imputations
+  extra.imp.multiple: 1
+
+  ## for the main scripts, there is a slow step of actually fitting the models, and a fast step
+  ## of plotting the data, writing tables, etc. If we want to just do the fast steps, and load results from file, set rebuildData to no
+  rebuildData: yes
+
+  

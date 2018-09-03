@@ -1,0 +1,10 @@
+output: ../output
+tmpdir: ../output/tmp
+onCluster: yes
+
+ovx:
+  numPerm: 1000
+  numImp: 500
+  iter: 20000
+  mc.cores: 1        
+  rebuildData: yes

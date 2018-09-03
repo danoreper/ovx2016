@@ -1,0 +1,42 @@
+model {
+
+    ##################################
+    ##  Priors for intercept
+    ##############################
+    intercept ~ dnorm(0, .000001)
+
+
+    ###################################
+    ## Strain Effect
+    ###################################
+    std.strain~ dunif(0,1000)
+    precision.strain <- pow(std.strain,-2)
+    for(i in 1:n.STRAIN)
+    {
+        ranef.strain[i] ~ dnorm(0, precision.strain)
+    }
+
+    ###################################
+    ## Batch Effect
+    ##################################
+    std.batch~ dunif(0,1000)
+    precision.batch <- pow(std.batch,-2)
+    for(i in 1:n.BATCH)
+    {
+        ranef.batch[i] ~ dnorm(0, precision.batch)
+    }
+
+    std.epsilon ~ dunif(0,1000)
+    precision.epsilon <- pow(std.epsilon,-2)
+    #########################################
+    # Likelihood functions 
+    ###############################################
+    for(i in 1:n)
+    {
+        ##epsilon[i] ~ dnorm(0, precision.epsilon)
+       y [i]  ~ dnorm(intercept + ranef.batch[BATCH.j[i]]+ ranef.strain[STRAIN.j[i]],
+                      precision.epsilon)
+       ##epsilon[i] <- y[i] - intercept
+       ranef.strain.plus.eps[i] <- y[i] - intercept - ranef.batch[BATCH.j[i]]
+    }
+}
