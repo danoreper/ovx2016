@@ -95,52 +95,52 @@ ovx2016/output/ovx/treatment.pvalues.csv: median pvalues from multiple imputatio
 
 
 
-## Source files:
+## Source files:  
 
-Parallelizing code, on single and multiple machines:
-ovx2016/src/bsub.R
-ovx2016/src/bsubScript.R
+Parallelizing code, on single and multiple machines:  
+ovx2016/src/bsub.R  
+ovx2016/src/bsubScript.R  
 
-Loading yaml files, properties, command line args:
-ovx2016/src/loadParams.R
-ovx2016/src/loadParamsFunc.R
+Loading yaml files, properties, command line args:  
+ovx2016/src/loadParams.R  
+ovx2016/src/loadParamsFunc.R  
 
-General permutation testing functionality:
-ovx2016/src/permutationTesting.R
+General permutation testing functionality:  
+ovx2016/src/permutationTesting.R  
 
-Miscellaneous generally useful methods:
-ovx2016/utils.R
+Miscellaneous generally useful methods:  
+ovx2016/utils.R  
 
-Running Jags and processing gibbs samples
-ovx2016/src/bayes
-ovx2016/src/bayes/fitjags.R
-ovx2016/src/bayes/processSamples.R
+Running Jags and processing gibbs samples  
+ovx2016/src/bayes  
+ovx2016/src/bayes/fitjags.R  
+ovx2016/src/bayes/processSamples.R  
 
-Running linear models, building linear formulas, pulling results out of linear models
-ovx2016/src/lm
-ovx2016/srs/fitBoxCoxModels.R
-ovx2016/src/formulaWrapper.R
-ovx2016/src/lm.parsing.R
+Running linear models, building linear formulas, pulling results out of linear models  
+ovx2016/src/lm  
+ovx2016/srs/lm/fitBoxCoxModels.R  
+ovx2016/src/lm/formulaWrapper.R  
+ovx2016/src/lm/lm.parsing.R  
 
 
-Methods for matching pairs of samples, creating types of difference phenotypes, evaluating the matched phenotypes
-ovx2016/src/matching.R
-ovx2016/src/generate.R
-ovx2016/src/eval.R
+Methods for matching pairs of samples, creating types of difference phenotypes, evaluating the matched phenotypes    
+ovx2016/src/matching.R  
+ovx2016/src/generate.R  
+ovx2016/src/eval.R  
 
-OVX project specific functionality
-ovx2016/src/ovx
-ovx2016/src/ovx/estimation.main.R   -- script for estimation analysis
-ovx2016/src/ovx/perm.testing.main.R -- script for permutation testing
-ovx2016/src/ovx/ovxGibbs.R          -- functions used by estimation analysis
-ovx2016/src/ovx/modelFunc.R         -- functions used throughout ovx; e.g. parsing inputs
-ovx2016/src/ovx/model.delta.bug     -- jags model for estimation of strain-by-treatment effects
-ovx2016/src/ovx/model.strain.bug    -- jags model for estimation of strain effects
+OVX project specific functionality  
+ovx2016/src/ovx  
+ovx2016/src/ovx/estimation.main.R -- script for estimation analysis  
+ovx2016/src/ovx/perm.testing.main.R -- script for permutation testing  
+ovx2016/src/ovx/ovxGibbs.R  -- functions used by estimation analysis  
+ovx2016/src/ovx/modelFunc.R         -- functions used throughout ovx; e.g. parsing inputs  
+ovx2016/src/ovx/model.delta.bug     -- jags model for estimation of strain-by-treatment effects  
+ovx2016/src/ovx/model.strain.bug    -- jags model for estimation of strain effects  
 
 
 ## data files
-Forced swim data:
-ovx2016/data/ovx/FST.csv
+Forced swim data:  
+ovx2016/data/ovx/FST.csv  
 
-Open field data:
-ovx2016/data/ovx/OF.csv
+Open field data:  
+ovx2016/data/ovx/OF.csv  
