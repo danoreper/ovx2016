@@ -140,7 +140,7 @@ ovx2016/src/ovx/model.strain.bug    -- jags model for estimation of strain effec
 
 ## data files
 Forced swim data:
-ovx2016/data/FST.csv
+ovx2016/data/ovx/FST.csv
 
 Open field data:
-ovx2016/data/OF.csv
+ovx2016/data/ovx/OF.csv
