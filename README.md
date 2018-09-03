@@ -9,7 +9,7 @@ All main scripts assume the working directory is ovx2016/src
 To run permutation testing:
 ovxfold/src$ R CMD BATCH --no-save --no-restore ./ovx/perm.testing.main.R
 
-To run permutation testing with a yaml property override file:
+To run permutation testing with a yaml property override file:  
 ```ovx2016/src$ R CMD BATCH --no-save --no-restore '--args OVERRIDEFILENAME.yaml'./ovx/perm.testing.main.R ```
 e.g.,
 ovx2016/src$ R CMD BATCH --no-save --no-restore '--args ../config/defaultBayes.yaml' ./ovx/perm.testing.main.R 
