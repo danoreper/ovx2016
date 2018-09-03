@@ -23,7 +23,7 @@ ovx2016/src$ R CMD BATCH --no-save --no-restore ./ovx/estimation.main.R
 Properties can be similarly overriden as for permutation testing, and script can be run on the cluster
 
 
-2) YAML propery files:
+## YAML propery files:
 The default properties have been set assuming a single small machine, and also assuming the user expects the code to run in less than an hour. As such, the default sampling iterations, number of permutations, number of random imputations, etc, are all low, and so the results may be somewhat innacurate. If in possession of a more powerful machine, or running on a compute cluster administered by LSF, property override files may be appropriate.
 
 Existing property override files include:
@@ -34,7 +34,7 @@ The default property file, which includes description of all properties, is:
 ovx2016/config/defaultParams.yaml
 
 
-3) Output files:
+## Output files:
 ovx2016/output/ovx/totalstrain: figures describing the overall (including intercept) strain effects on the sham population.
 
 ovx2016/output/ovx/totalstrain/cat_*_ranef.strain.pdf: caterpillar plots of the overall strain effect  on various phenotypes. The point in each caterpillar corresponds to the mean effect, the thick line segment represents a 68% credible interval (.16, .84), and the thin line segment represents a 95% credible interval (.025, .975). Values within the caterpillar plot include the intercept; i.e.,
@@ -95,7 +95,7 @@ ovx2016/output/ovx/treatment.pvalues.csv: median pvalues from multiple imputatio
 
 
 
-4) Source files:
+## Source files:
 
 Parallelizing code, on single and multiple machines:
 ovx2016/src/bsub.R
@@ -138,7 +138,7 @@ ovx2016/src/ovx/model.delta.bug     -- jags model for estimation of strain-by-tr
 ovx2016/src/ovx/model.strain.bug    -- jags model for estimation of strain effects
 
 
-5) data files
+## data files
 Forced swim data:
 ovx2016/data/ovx/FINAL\_FST\_forR\_v2.csv
 
